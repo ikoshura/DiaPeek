@@ -1,0 +1,53 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 14px/1.5 system-ui, -apple-system, sans-serif;
+  background: #f5f5f7;
+  color: #1c1c1e;
+}
+main { max-width: 640px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { margin: 0 0 4px; font-size: 22px; }
+.sub { margin: 0 0 20px; color: #666; }
+h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 0 0 12px; }
+section {
+  background: #fff; border-radius: 12px; padding: 16px 18px; margin: 14px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.toggle { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; margin: 6px 0 4px; }
+.radio { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1px solid rgba(128,128,128,.15); }
+.radio:first-of-type { border-top: 0; }
+.radio span { flex: 1; }
+.radio b { font-weight: 600; }
+.radio em { color: #b26a00; font-style: normal; display: block; font-size: 12px; margin-top: 2px; }
+.check { display: flex; align-items: center; gap: 10px; padding: 5px 0; }
+.check.inline { padding: 0; }
+.row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.row label { display: flex; align-items: center; gap: 6px; }
+input[type="number"] { width: 80px; padding: 5px 7px; border: 1px solid #ccc; border-radius: 7px; font: inherit; }
+code { background: rgba(128,128,128,.18); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+.hint { color: #888; font-style: normal; font-size: 12px; }
+.note { color: #888; font-size: 12px; margin: 12px 0 0; line-height: 1.45; }
+.footer { position: sticky; bottom: 0; background: #f5f5f7; display: flex; align-items: center; gap: 14px; padding: 14px 0; margin-top: 20px; }
+button#save { background: #007aff; color: #fff; border: 0; border-radius: 9px; padding: 9px 20px; font: inherit; font-weight: 600; cursor: pointer; }
+button#save:hover { filter: brightness(1.08); }
+button#reset { background: transparent; color: #007aff; border: 1px solid rgba(0,122,255,.4); border-radius: 9px; padding: 9px 16px; font: inherit; font-weight: 600; cursor: pointer; }
+button#reset:hover { background: rgba(0,122,255,.08); }
+#status { color: #34c759; font-weight: 600; }
+
+/* Dark mode — MUSS am Ende stehen, damit die Overrides die Basisregeln oben
+   gewinnen (gleiche Spezifität → spätere Regel gewinnt). */
+@media (prefers-color-scheme: dark) {
+  body { background: #1c1c1e; color: #f2f2f7; }
+  .sub { color: #a1a1a6; }
+  h2 { color: #98989d; }
+  section { background: #2c2c2e; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+  .radio { border-top-color: rgba(255,255,255,.1); }
+  .radio em { color: #ffb340; }
+  .hint { color: #98989d; }
+  .note { color: #98989d; }
+  code { background: rgba(255,255,255,.16); color: #f2f2f7; }
+  input[type="number"] { background: #3a3a3c; color: #fff; border-color: #555; }
+  .footer { background: #1c1c1e; }
+  button#save { background: #0a84ff; }
+}

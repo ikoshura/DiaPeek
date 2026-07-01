@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+.stage{width:1280px;height:800px;background:linear-gradient(180deg,#eef1ff,#f6f7fc);font-family:-apple-system,system-ui,'Segoe UI',sans-serif;position:relative;overflow:hidden}
+.head{text-align:center;padding:64px 40px 0}
+.head h1{font-size:44px;font-weight:800;color:#1b2140;letter-spacing:-.5px}
+.head p{font-size:22px;color:#5b6480;margin-top:14px}
+.cards{display:flex;gap:34px;justify-content:center;margin-top:70px}
+.card{width:320px;height:340px;background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(30,40,90,.14);padding:38px 30px;text-align:center}
+.icon{width:84px;height:84px;border-radius:22%;background:#4f68f7;position:relative;margin:0 auto}
+.icon .page{position:absolute;left:12.5%;top:27%;width:27%;height:46%;background:#6f84f9;border-radius:16%}
+.icon .panel{position:absolute;left:45%;top:22%;width:42%;height:56%;background:#fff;border-radius:18%}
+.card h2{font-size:27px;font-weight:700;color:#1b2140;margin-top:26px}
+.card p{font-size:18px;color:#5b6480;margin-top:12px;line-height:1.5}
+.keys{margin-top:20px;font-size:19px}
+.k{display:inline-block;background:#eef1ff;color:#3a4a8f;border-radius:8px;padding:6px 12px;margin:4px;font-weight:600}
+</style></head><body>
+<div class="stage">
+  <div class="head"><h1>Two modes, native gestures respected</h1>
+  <p>Pick how the Peek appears — and keep your browser shortcuts intact.</p></div>
+  <div class="cards">
+    <div class="card"><div class="icon"><div class="page"></div><div class="panel"></div></div>
+      <h2>Sidepeek</h2><p>Docked in-page overlay,<br>optionally as a split view.</p></div>
+    <div class="card"><div class="icon"><div class="page"></div><div class="panel"></div></div>
+      <h2>Window</h2><p>Centered window that closes<br>when you click away.</p></div>
+    <div class="card"><div class="icon"><div class="page"></div><div class="panel"></div></div>
+      <h2>Native keys</h2><div class="keys"><span class="k">⌘ Tab</span><span class="k">⌃ Menu</span><span class="k">⌥ Split</span></div><p style="margin-top:14px">Left untouched.</p></div>
+  </div>
+</div></body></html>
