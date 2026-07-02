@@ -77,6 +77,16 @@ open** and **only for the peeked domain** (`requestDomains:[host]`, sub_frame).
 Earlier it was global+always-on, which broke image loading in Slack — do not
 regress to that.
 
+## Interception scope
+- Only `target="_blank"` links (plain click), middle-click, feature-less
+  `window.open`, and Shift-click are intercepted. `⌘`/`⌃`/`⌥` clicks are never touched.
+- **Raw-file links are never peeked** — `isPeekable()` (in both content-iso.js and
+  content-main.js) skips URLs whose path ends in an image/media/doc/archive
+  extension (png, jpg, pdf, zip, mp4, …). This fixed **Slack image thumbnails**
+  (Slack opens them via feature-less `window.open` to `files.slack.com/…png`),
+  which were being hijacked into a Peek. Embedding a raw file in an iframe is
+  useless anyway — let the browser handle it.
+
 ## Peek behaviors
 - Overlay (`◧` split toggle: squeezes host page left via an injected stylesheet
   that also constrains top-level containers incl. `position:fixed` via

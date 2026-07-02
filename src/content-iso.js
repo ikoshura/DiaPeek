@@ -67,6 +67,22 @@
   function isHttp(href) {
     return /^https?:/i.test(href || '');
   }
+  // Direkte Dateien (Bilder, PDFs, Medien, Archive) NICHT peeken – im iframe
+  // sinnlos, und es würde z. B. Slack-Bild-Thumbnails abfangen. Solche URLs soll
+  // der Browser nativ behandeln.
+  const FILE_EXT = new Set(
+    'png jpg jpeg gif webp svg avif bmp ico tif tiff heic mp4 webm mov m4v mkv mp3 wav ogg m4a flac pdf zip gz tgz tar rar 7z dmg pkg exe msi apk csv tsv txt rtf doc docx xls xlsx ppt pptx odt ods'.split(' ')
+  );
+  function isPeekable(url) {
+    try {
+      const u = new URL(url, location.href);
+      if (!/^https?:$/.test(u.protocol)) return false;
+      const m = u.pathname.toLowerCase().match(/\.([a-z0-9]{1,5})$/);
+      return !(m && FILE_EXT.has(m[1]));
+    } catch (e) {
+      return false;
+    }
+  }
   function findAnchor(e) {
     const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
     for (const n of path) if (n && n.tagName === 'A' && n.href) return n;
@@ -83,7 +99,7 @@
     if (e.metaKey || e.ctrlKey || e.altKey) return;
 
     const a = findAnchor(e);
-    if (!a || !isHttp(a.href)) return;
+    if (!a || !isHttp(a.href) || !isPeekable(a.href)) return;
 
     const ic = settings.intercept;
     let hit = false;
@@ -106,7 +122,7 @@
     if (e.button !== 1) return; // Mittelklick
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const a = findAnchor(e);
-    if (!a || !isHttp(a.href)) return;
+    if (!a || !isHttp(a.href) || !isPeekable(a.href)) return;
     e.preventDefault();
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
