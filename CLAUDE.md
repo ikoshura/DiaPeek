@@ -108,7 +108,7 @@ regress to that.
   `bash dist/store-assets/build.sh` (uses chrome-headless-shell → exact-size PNGs).
 
 ## Publishing (Chrome Web Store)
-- Package: `dist/diapeek-0.1.0.zip` (manifest at root, `src/`, `icons/*.png`; no
+- Package: `dist/diapeek-1.0.0.zip` (manifest at root, `src/`, `icons/*.png`; no
   dev files). Rebuild: `zip -rX dist/diapeek-<v>.zip manifest.json src icons -x 'icons/gen-icons.js'`.
 - Store icon: `icons/icon128.png`.
 - Screenshots (1280×800): `dist/store-assets/screenshot-{1,2,3}-*.png`.
@@ -139,4 +139,4 @@ regress to that.
 ## Status
 Feature-complete MVP: interception + overlay (with split) + window mode +
 settings + icon + store assets + listing/privacy copy. `manifest.json` version is
-`0.1.0` (bump to `1.0.0` before publishing if desired).
+`1.0.0` (published package: `dist/diapeek-1.0.0.zip`).

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "DiaPeek",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Öffnet Links, die sonst einen neuen Tab öffnen würden, in einem Peek (Sidepeek-Overlay oder eigenem Fenster).",
   "icons": {
     "16": "icons/icon16.png",
